@@ -1,0 +1,18 @@
+spring:
+#  profiles:
+#    active: native # 本地读取配置文件
+  cloud:
+    config:
+      server:
+#        native:
+#          search-locations: classpath:/shared # 指定本地配置文件读取路径
+        git:
+          uri: https://github.com/learner-ethan/spring-cloud-study # 这里调的是github的仓库
+          search-paths: spring-cloud-config # github项目下的索引目录
+          username: # 用户名，私有的git库需要提供用户名密码
+          password: # 密码，私有的git库需要提供密码
+      label: master
+  application:
+    name: config-server # 服务名称
+server:
+  port: 8020 # 服务端口号
